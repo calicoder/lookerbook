@@ -10,6 +10,7 @@
   }
 
   function startHacking() {
+    alert('hacking');
 
     var selectors = ['#lk-nav-main','.alert-banner','#lk-control', '.lk-bar.filters', '.lk-vis-table-stuck-header-wrapper'];
     var selector;
@@ -27,4 +28,4 @@
     $('#lk-title').css('background', '#f6f8fa');
     $('#lk-title').css('color', 'black');
   }
-}(document))
+}(document));
