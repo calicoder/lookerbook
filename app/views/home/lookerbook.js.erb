@@ -28,7 +28,6 @@
     $('#lk-title').css('background', '#f6f8fa');
     $('#lk-title').css('color', 'black');
 
-
     // Change formatting on total tables
     var total_tables;
     total_tables = $('.title a').filter(
@@ -36,9 +35,16 @@
         return $(this).text() == "Totals";}
     ).parents('.dashboard-element')
 
-    $('.vis-header', total_tables).hide();
-    $('.lk-vis-table-stuck-header-wrapper', total_tables).hide();
-    $('.qr-table-header', total_tables).hide();
+    selectors = ['.vis-header', '.lk-vis-table-stuck-header-wrapper', '.qr-table-header'];
 
+    for(var i = 0; i< selectors.length; i++) {
+      selector = selectors[i];
+
+      if($(selector, total_tables).is(':visible')) {
+        $(selector, total_tables).hide();
+      } else {
+        $(selector, total_tables).show();
+      }
+    }
   }
 }(document));
