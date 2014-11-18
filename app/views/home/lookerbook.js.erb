@@ -1,7 +1,7 @@
 (function(d) {
   if (!($ = window.jQuery)) {
     script = document.createElement('script');
-    script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
+    script.src = '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
     script.onload = startHacking;
     document.body.appendChild(script);
   }
@@ -10,6 +10,7 @@
   }
 
   function startHacking() {
+    // Hide elements
     var selectors = ['#lk-nav-main','.alert-banner','#lk-control', '.lk-bar.filters', '.lk-vis-table-stuck-header-wrapper', '.select2-hidden-accessible'];
     var selector;
 
@@ -23,7 +24,21 @@
       }
     }
 
+    // Change formatting on dashboard title
     $('#lk-title').css('background', '#f6f8fa');
     $('#lk-title').css('color', 'black');
+
+
+    // Change formatting on total tables
+    var total_tables;
+    total_tables = $('.title a').filter(
+      function() {
+        return $(this).text() == "Totals";}
+    ).parents('.dashboard-element')
+
+    $('.vis-header', total_tables).hide();
+    $('.lk-vis-table-stuck-header-wrapper', total_tables).hide();
+    $('.qr-table-header', total_tables).hide();
+
   }
 }(document));
