@@ -1,4 +1,4 @@
-//(function(d) {
+(function(d) {
 if (!($ = window.jQuery)) {
   script = document.createElement('script');
   script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
@@ -10,8 +10,6 @@ else {
 }
 
 function startHacking() {
-  alert('hacking!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-
   var selectors = ['#lk-nav-main','.alert-banner','#lk-control', '.lk-bar.filters', '.lk-vis-table-stuck-header-wrapper'];
   var selector;
 
@@ -28,4 +26,4 @@ function startHacking() {
   $('#lk-title').css('background', '#f6f8fa');
   $('#lk-title').css('color', 'black');
 }
-//}(document));
+}(document));
