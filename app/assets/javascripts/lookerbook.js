@@ -1,4 +1,4 @@
-(function(d) {
+//(function(d) {
   if (!($ = window.jQuery)) {
     script = document.createElement('script');
     script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
@@ -28,4 +28,4 @@
     $('#lk-title').css('background', '#f6f8fa');
     $('#lk-title').css('color', 'black');
   }
-}(document));
+//}(document));
