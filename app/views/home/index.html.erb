@@ -4,7 +4,7 @@ javascript:void((function(d) {
   e = d.createElement('script');
   e.setAttribute('type', 'text/javascript');
   e.setAttribute('charset', 'UTF-8');
-  e.setAttribute('src', '<%= javascript_url("lookerbook.js") %>?r=' + Math.random() * 99999999);
+  e.setAttribute('src', '<%= lookerbook_url(:format => :js) %>?r=' + Math.random() * 99999999);
   d.body.appendChild(e);
 }(document)));
 ">Looker Toggle</a>
