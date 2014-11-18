@@ -10,7 +10,7 @@
   }
 
   function startHacking() {
-    alert('hacking!!!');
+    alert('hacking!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
 
     var selectors = ['#lk-nav-main','.alert-banner','#lk-control', '.lk-bar.filters', '.lk-vis-table-stuck-header-wrapper'];
     var selector;
