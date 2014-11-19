@@ -28,23 +28,26 @@
     $('#lk-title').css('background', '#f6f8fa');
     $('#lk-title').css('color', 'black');
 
-    // Change formatting on total tables
-    var total_tables;
-    total_tables = $('.title a').filter(
-      function() {
-        return $(this).text() == "Totals";}
-    ).parents('.dashboard-element')
+    //Change formatting on total tables
+    $.each($('.lk-vis-table.main') , function( index, table) {
 
-    selectors = ['.vis-header', '.lk-vis-table-stuck-header-wrapper', '.qr-table-header'];
+      //FOR TOTAL ROWS THAT SHOULD BE VISIBLE
+      //    Note: Tables without totals have a hidden tfoot.qr-table-footer
+      if($('tfoot.qr-table-footer:not(.ng-hide)', table).length) {
 
-    for(var i = 0; i< selectors.length; i++) {
-      selector = selectors[i];
 
-      if($(selector, total_tables).is(':visible')) {
-        $(selector, total_tables).hide();
-      } else {
-        $(selector, total_tables).show();
+        // If the total row has been moved already, remove it show the original footer
+        if ($('tbody tr.qr-table-footer-row', table).length) {
+          $('tbody tr.qr-table-footer-row', table).remove();
+          $('tfoot tr.qr-table-footer-row', table).show();
+
+        } else {
+          // it has not been moved yet, copy the row at the end of the table rows and hide it
+          var totals_row = $('tfoot tr.qr-table-footer-row', table).clone();
+          $('tbody', table).append(totals_row);
+          $('tfoot tr.qr-table-footer-row', table).hide();
+        }
       }
-    }
+    });
   }
 }(document));
